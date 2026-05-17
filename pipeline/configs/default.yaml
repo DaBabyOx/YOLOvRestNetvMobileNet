@@ -1,0 +1,38 @@
+dataset_root: dataset
+
+epill:
+  csv: ePill/all_labels.csv
+  image_base: ePill/classification_data
+  train_split: 0.8
+  seed: 42
+
+medicalpill:
+  images:
+    - medicalPill/train/images
+    - medicalPill/valid/images
+  labels:
+    - medicalPill/train/labels
+    - medicalPill/valid/labels
+
+classification:
+  img_size: 224
+  batch_size: 32
+  epochs: 5
+  lr: 0.001
+  num_workers: 0
+  models:
+    - mobilenet_v3_small
+    - resnet18
+
+# Use a single class mapping so ePill can be tested on medicalPill.
+label_map:
+  pill: 0
+
+yolo:
+  variant: yolov8n
+  img_size: 640
+  epochs: 50
+  batch: 16
+  workers: 2
+
+outputs: pipeline/outputs

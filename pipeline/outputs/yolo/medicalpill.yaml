@@ -1,0 +1,6 @@
+path: /workspace/dataset
+train: medicalPill/train/images
+val: medicalPill/valid/images
+names:
+- pill
+nc: 1
